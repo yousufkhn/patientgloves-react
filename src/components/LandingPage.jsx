@@ -73,6 +73,7 @@ export default function LandingPage() {
                         <label for="switch" onClick={toggleGloves}></label>
                     </div>
                 </div>
+
             </div>
         </>
     );

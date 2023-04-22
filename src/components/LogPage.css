@@ -1,0 +1,19 @@
+.latestCardcard {
+    display: flex;
+    flex-direction: column;
+    /* width: clamp(20rem, calc(20rem + 2vw), 22rem); */
+    overflow: hidden;
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+  background: linear-gradient(to right, #2D2727, #191825);
+  margin: 2%;
+  width: 95%;
+  
+  }
+
+  .latestCardcard__body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
