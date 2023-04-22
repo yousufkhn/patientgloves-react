@@ -1,21 +1,48 @@
 import Lottie from "lottie-react";
 import gloves from "../lotties/gloves.json";
 import { useState, useEffect } from "react";
+import { db } from "../utils/firebase";
+import { onValue, ref } from "firebase/database";
+
 import "./LandingPage.css"
 import notification from '../assets/audio/notification.mp3'
 
 export default function LandingPage() {
     const [glovesState, setGlovesState] = useState("Off");
     const [logText, setLogText] = useState("here log");
+    
+
+    // glove codes
+    const gloveCode = {
+        0: "OFF STATE",
+        1: "Wash Room",
+        2: "Feeling Lonely",
+        3: "Call Doctor"
+    }
+
+    useEffect(() => {
+        const query = ref(db, "glove");
+        return onValue(query, (snapshot) => {
+            const data = snapshot.val();
+
+            if (snapshot.exists()) {
+                
+                Object.values(data).map((value) => {
+                    setLogText(gloveCode[value]);
+                    return null;
+                });
+            }
+        });
+    });
 
 
     function toggleGloves() {
         if (glovesState === "Off") {
             setGlovesState("On");
-            setLogText("haha");
+            // setLogText("haha");
         } else {
             setGlovesState("Off");
-            setLogText("hihi");
+            // setLogText("hihi");
 
         }
     }
@@ -69,8 +96,8 @@ export default function LandingPage() {
                         marginBottom: "5%",
                     }}
                 >
-                    <h1 style={{ marginTop: "2%" }}>Patient Log</h1>
-                    <h1>{logText}</h1>
+                    <h1 style={{ marginTop: "2%", }}>Patient Log</h1>
+                    <h1 style={{fontSize: "3.4rem"}}>{logText}</h1>
                 </div>
                 <div
                     className="buttons"
