@@ -25,7 +25,9 @@ export default function LandingPage() {
         if (logText !== "here log") {
             audio.play();
         }
+        navigator.vibrate(200);
     }, [logText]);
+
 
     return (
         <>
