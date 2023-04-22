@@ -1,12 +1,12 @@
 import Lottie from "lottie-react";
 import gloves from "../lotties/gloves.json";
 import { useState, useEffect } from "react";
-import "./LandingPage.css"
-import notification from '../assets/audio/notification.mp3'
+import "./LandingPage.css";
+import notification from '../assets/audio/notification.mp3';
 
 export default function LandingPage() {
     const [glovesState, setGlovesState] = useState("Off");
-    const [logText, setLogText] = useState("here log");
+    const [logText, setLogText] = useState("Patient is Resting");
 
 
     function toggleGloves() {
@@ -32,6 +32,7 @@ export default function LandingPage() {
                 if (permission === "granted") {
                     new Notification("Notification title", {
                         body: "Notification body text",
+                        icon: "./haha.jpeg"
                     });
                 }
             });
@@ -53,7 +54,7 @@ export default function LandingPage() {
                         <Lottie animationData={gloves}></Lottie>
                     </div>
                     <div>
-                        <h2 style={{ fontSize: "2rem" }}>Patient Gloves</h2>
+                        <h2 style={{ fontSize: "3rem" }}>Patient Gloves</h2>
                     </div>
                 </div>
                 <div
@@ -69,8 +70,7 @@ export default function LandingPage() {
                         marginBottom: "5%",
                     }}
                 >
-                    <h1 style={{ marginTop: "2%" }}>Patient Log</h1>
-                    <h1>{logText}</h1>
+                    <h1 style={{ fontSize: "2.2rem", textAlign: "center" }}>{logText}</h1>
                 </div>
                 <div
                     className="buttons"
@@ -85,6 +85,7 @@ export default function LandingPage() {
                         <label for="switch" onClick={toggleGloves}></label>
                     </div>
                 </div>
+
 
             </div>
         </>

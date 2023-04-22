@@ -1,6 +1,7 @@
 import "./LogPage.css"
 
 export default function LogPage() {
+
     return (
         <>
             <h1 style={{ textAlign: "center" }}>Patient Log</h1>
