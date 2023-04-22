@@ -3,20 +3,43 @@ import gloves from "../lotties/gloves.json";
 import { useState, useEffect } from "react";
 import "./LandingPage.css";
 import notification from '../assets/audio/notification.mp3';
+import { db } from "../utils/firebase.js";
+import { onValue, ref } from "firebase/database";
 
 export default function LandingPage() {
     const [glovesState, setGlovesState] = useState("Off");
     const [logText, setLogText] = useState("Patient is Resting");
 
 
+    // glove codes
+    const gloveCode = {
+        0: "OFF STATE",
+        1: "Wash Room",
+        2: "Feeling Lonely",
+        3: "Call Doctor"
+    }
+
+    useEffect(() => {
+        const query = ref(db, "glove");
+        return onValue(query, (snapshot) => {
+            const data = snapshot.val();
+
+            if (snapshot.exists()) {
+
+                Object.values(data).map((value) => {
+                    setLogText(gloveCode[value]);
+                    return null;
+                });
+            }
+        });
+    });
+
+
     function toggleGloves() {
         if (glovesState === "Off") {
             setGlovesState("On");
-            setLogText("haha");
         } else {
             setGlovesState("Off");
-            setLogText("hihi");
-
         }
     }
 
