@@ -1,18 +1,32 @@
 import Lottie from "lottie-react";
 import gloves from "../lotties/gloves.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./LandingPage.css"
+import notification from '../assets/audio/notification.mp3'
 
 export default function LandingPage() {
     const [glovesState, setGlovesState] = useState("Off");
+    const [logText, setLogText] = useState("here log");
+
 
     function toggleGloves() {
         if (glovesState === "Off") {
             setGlovesState("On");
+            setLogText("haha");
         } else {
             setGlovesState("Off");
+            setLogText("hihi");
+
         }
     }
+
+    useEffect(() => {
+        const audio = new Audio(notification);
+        if (logText !== "here log") {
+            audio.play();
+        }
+    }, [logText]);
+
     return (
         <>
             <div className="landingPage">
@@ -27,7 +41,7 @@ export default function LandingPage() {
                         <Lottie animationData={gloves}></Lottie>
                     </div>
                     <div>
-                        <h2>Patient Gloves</h2>
+                        <h2 style={{ fontSize: "2rem" }}>Patient Gloves</h2>
                     </div>
                 </div>
                 <div
@@ -44,7 +58,7 @@ export default function LandingPage() {
                     }}
                 >
                     <h1 style={{ marginTop: "2%" }}>Patient Log</h1>
-                    <h1>{"here log"}</h1>
+                    <h1>{logText}</h1>
                 </div>
                 <div
                     className="buttons"
