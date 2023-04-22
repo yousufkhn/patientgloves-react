@@ -1,0 +1,41 @@
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 100px; /* Updated width to 100px */
+    height: 50px; /* Updated height to 50px */
+    background: grey;
+    display: block;
+    border-radius: 50px; /* Updated border radius to 50px */
+    position: relative;
+}
+
+label:after {
+    content: '';
+    position: absolute;
+    top: 2.5px; /* Updated top position to half of the label height */
+    left: 2.5px; /* Updated left position to half of the label width */
+    width: 45px; /* Updated width to 45px, which is half of the label width */
+    height: 45px; /* Updated height to 45px, which is half of the label height */
+    background: #fff;
+    border-radius: 45px; /* Updated border radius to 45px, which is half of the label height */
+    transition: 0.3s;
+}
+
+input:checked + label {
+    background: #1dd1dc;
+}
+
+input:checked + label:after {
+    left: calc(100% - 2.5px); /* Updated left position to half of the label width */
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 65px; /* Updated width to 65px, which is half of the label width plus 5px */
+}
