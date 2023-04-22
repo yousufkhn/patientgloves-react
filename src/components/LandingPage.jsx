@@ -25,7 +25,17 @@ export default function LandingPage() {
         if (logText !== "here log") {
             audio.play();
         }
-        navigator.vibrate(200);
+        navigator.vibrate(300);
+
+        if ("Notification" in window) {
+            Notification.requestPermission().then((permission) => {
+                if (permission === "granted") {
+                    new Notification("Notification title", {
+                        body: "Notification body text",
+                    });
+                }
+            });
+        }
     }, [logText]);
 
 

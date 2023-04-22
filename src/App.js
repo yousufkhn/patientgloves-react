@@ -28,7 +28,7 @@ function App() {
     <>
       <div className="appContainer" style={{ height: "100%", color: "white" }}>
         <Router>
-          <div style={{ position: "fixed", bottom: "2%", right: "3%" }}>
+          <div style={{ position: "fixed", bottom: "2%", right: "4%" }}>
             <Link to={`${logButton === "Home" ? "/log" : "/"}`} className="logButton" onClick={handleLogClick}>{`${logButton === "Home" ? "View Log" : "Home"}`}</Link>
           </div>
           <Routes>
