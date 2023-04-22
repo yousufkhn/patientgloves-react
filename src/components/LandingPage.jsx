@@ -22,7 +22,7 @@ export default function LandingPage() {
 
     useEffect(() => {
         const audio = new Audio(notification);
-        if (logText !== "here log") {
+        if (logText !== "Patient is Resting") {
             audio.play();
         }
         navigator.vibrate(300);

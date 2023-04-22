@@ -18,7 +18,7 @@ export default function ToggleButton() {
     return (
         <>
             {location.pathname !== '/' && (<div style={{ position: "fixed", bottom: "2%", right: "4%" }}>
-                <Link to={`${logButton === "Home" ? "/log" : "/home"}`} className="logButton" onClick={handleLogClick}>{`${logButton === "Home" ? "View Log" : "Home"}`}</Link>
+                <Link to={`${logButton === "Home" ? "/log" : "/home"}`} className="logButton" onClick={handleLogClick}>{`${location.pathname === "/home" ? "View Log" : "Home"}`}</Link>
             </div>)}
 
         </>
