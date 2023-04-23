@@ -11,19 +11,21 @@ export default function GloveLogin() {
 
     const navigate = useNavigate();
     const [gloveId, setGloveId] = useState("");
-    const correctGloveId = process.env.REACT_APP_GLOVE_ID;
+    const [glovePin, setGlovePin] = useState("");
+
 
 
 
     function handleLogin() {
-        if (gloveId === correctGloveId) {
+        console.log(gloveId);
+        console.log(process.env.REACT_APP_GLOVE_ID);
+        console.log(glovePin);
+        console.log(process.env.REACT_APP_GLOVE_PIN);
+        if (gloveId === process.env.REACT_APP_GLOVE_ID && glovePin === process.env.REACT_APP_GLOVE_PIN) {
             navigate("/home");
         }
         else {
-            alert("GloveId does not exist!")
-            console.log(correctGloveId)
-
-            console.log(gloveId)
+            alert("Invalid Credentials!")
         }
 
     }
@@ -32,6 +34,7 @@ export default function GloveLogin() {
         <>
             <div class="login">
                 <input type="text" placeholder="Enter Glove Id" value={gloveId} onChange={(e) => setGloveId(e.target.value)} />
+                <input type="password" placeholder="Enter Glove Pin" value={glovePin} onChange={(e) => setGlovePin(e.target.value)} />
                 <button onClick={handleLogin} disabled={!gloveId}>Connect</button>
 
             </div>
