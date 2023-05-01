@@ -1,0 +1,19 @@
+.finger-gesture-wrapper{
+    display: flex;
+    margin-top: 8%;
+}
+
+.icon{
+    padding-left: 10%;
+}
+
+.icon img{
+    border-radius: 50%;
+    border: solid black 2px;
+}
+
+.input{
+    margin: auto;
+    flex-grow: 0.6;
+}
+
