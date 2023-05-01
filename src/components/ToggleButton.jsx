@@ -1,25 +1,33 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import "../components/ToggleButton.css";
+import { useNavigate } from "react-router-dom";
 
 export default function ToggleButton() {
 
-    const [logButton, setLogButton] = useState("Home");
     const location = useLocation();
 
-    function handleLogClick() {
-        if (logButton === "Home") {
-            setLogButton("Log");
-        }
-        else {
-            setLogButton("Home");
-        }
-    }
+    const navigate = useNavigate();
     return (
         <>
-            {location.pathname !== '/' && (<div style={{ position: "fixed", bottom: "2%", right: "4%" }}>
-                <Link to={`${logButton === "Home" ? "/log" : "/home"}`} className="logButton" onClick={handleLogClick}>{`${location.pathname === "/home" ? "View Log" : "Home"}`}</Link>
-            </div>)}
+            {location.pathname !== '/' && (
+                <div style={{ position: "fixed", bottom: "0%", width: "100%", height: "20%", display: "flex" }}>
+                    {/* <Link to={`${logButton === "Home" ? "/log" : "/home"}`} className="logButton" style={{ backgroundColor: "#4ad0ee" }} onClick={handleLogClick}>{`${location.pathname === "/home" ? "View Log" : "Home"}`}</Link> */}
+                    <div className="1" style={{ width: "37%", height: "100%", textAlign: "center" }}>
+                        <img src={require(`../assets/images/home${location.pathname === "/home" ? "Focus" : ""}.png`)} alt="" style={{ height: "30%", margin: "auto", paddingTop: "50%" }} onClick={() => { navigate("/home") }} />
+                    </div>
+                    <div className="2" style={{ width: "27%", transform: "scale(0.8)", textAlign: 'center' }}>
+                        <input type="checkbox" id="toggle" />
+                        <label for="toggle" class="toggleWrapper" style={{ marginLeft: "auto", marginRight: "auto" }}>
+                            <div class="toggle"></div>
+                        </label>
+                    </div>
+                    <div className="3" style={{ width: "36%", height: "100%", textAlign: "center" }}>
+                        <img src={require(`../assets/images/notes${location.pathname === "/log" ? "Focus" : ""}.png`)} alt="" style={{ height: "30%", margin: "auto", paddingTop: "50%" }} onClick={() => { navigate("/log") }} />
+                    </div>
+
+                </div >
+            )
+            }
 
         </>
     )

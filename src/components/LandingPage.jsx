@@ -7,7 +7,6 @@ import { db } from "../utils/firebase.js";
 import { onValue, ref } from "firebase/database";
 
 export default function LandingPage() {
-    const [glovesState, setGlovesState] = useState("Off");
     const [logText, setLogText] = useState("Patient is Resting");
 
 
@@ -35,14 +34,6 @@ export default function LandingPage() {
     });
 
 
-    function toggleGloves() {
-        if (glovesState === "Off") {
-            setGlovesState("On");
-        } else {
-            setGlovesState("Off");
-        }
-    }
-
     useEffect(() => {
         const audio = new Audio(notification);
         if (logText !== "Patient is Resting") {
@@ -50,16 +41,6 @@ export default function LandingPage() {
         }
         navigator.vibrate(300);
 
-        if ("Notification" in window) {
-            Notification.requestPermission().then((permission) => {
-                if (permission === "granted") {
-                    new Notification("Notification title", {
-                        body: "Notification body text",
-                        icon: "./haha.jpeg"
-                    });
-                }
-            });
-        }
     }, [logText]);
 
 
@@ -83,9 +64,9 @@ export default function LandingPage() {
                 <div
                     className="glovesLog"
                     style={{
-                        height: "35vh",
+                        height: "25vh",
                         display: "grid",
-                        background: "#363867",
+                        background: "#101c43",
                         placeItems: "center",
                         borderRadius: "30px",
                         marginLeft: "5%",
@@ -102,11 +83,11 @@ export default function LandingPage() {
                         , marginBottom: "0px"
                     }}
                 >
-                    <h3 style={{ margin: "0px" }}>Gloves {glovesState}</h3>
+                    {/* <h3 style={{ margin: "0px" }}>Gloves {glovesState}</h3>
                     <div className="toggleSwitch" >
                         <input type="checkbox" id="switch" />
                         <label for="switch" onClick={toggleGloves}></label>
-                    </div>
+                    </div> */}
                 </div>
 
 

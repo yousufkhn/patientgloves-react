@@ -32,7 +32,9 @@ export default function GloveLogin() {
 
     return (
         <>
+
             <div class="login">
+                <h1 style={{ color: "black", textAlign: "center", fontSize: "2.2rem" }}>Login With Your Glove Id</h1>
                 <input type="text" placeholder="Enter Glove Id" value={gloveId} onChange={(e) => setGloveId(e.target.value)} />
                 <input type="password" placeholder="Enter Glove Pin" value={glovePin} onChange={(e) => setGlovePin(e.target.value)} />
                 <button onClick={handleLogin} disabled={!gloveId}>Connect</button>
