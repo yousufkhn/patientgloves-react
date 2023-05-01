@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <div className="appContainer" style={{ height: "100%", color: "white" }}>
+      <div className="appContainer" style={{ height: "100%", color: "white", overflow: "hidden" }}>
         <Router>
           <ToggleButton />
           <Routes>
