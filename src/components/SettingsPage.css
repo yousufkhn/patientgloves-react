@@ -1,0 +1,43 @@
+.heading{
+    font-size: 2rem;
+    text-align: center;
+    /* text-decoration: underline; */
+    
+}
+
+
+.finger-gesture-wrapper{
+    display: flex;
+    margin-top: 8%;
+}
+
+.finger-gesture-wrapper .icon{
+    padding-left: 10%;
+    
+}
+
+.finger-gesture-wrapper .icon img{
+    border-radius: 30%;
+    border: solid black 2px;
+}
+
+.finger-gesture-wrapper .input{
+    margin: auto;
+    
+}
+
+
+.form__input {
+font-family: 'Roboto', sans-serif;
+color: #333;
+font-size: 1.2rem;
+    margin: 0 auto;
+padding: 0.8rem 2rem;
+border-radius: 0.2rem;
+background-color: rgb(255, 255, 255);
+border: none;
+width: 70%;
+display: block;
+border-bottom: 0.3rem solid transparent;
+transition: all 0.3s;
+}
