@@ -8,7 +8,7 @@
     justify-content: center;
     overflow: hidden;
   } */
-  body input {
+  .bottomNavbar input {
     display: none;
   }
   body .toggleWrapper {

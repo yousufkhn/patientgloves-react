@@ -10,7 +10,7 @@ export default function ToggleButton() {
     return (
         <>
             {location.pathname !== '/' && (
-                <div style={{ position: "fixed", bottom: "0%", width: "100%", height: "20%", display: "flex" }}>
+                <div className="bottomNavbar" style={{ position: "fixed", bottom: "0%", width: "100%", height: "20%", display: "flex" }}>
                     {/* <Link to={`${logButton === "Home" ? "/log" : "/home"}`} className="logButton" style={{ backgroundColor: "#4ad0ee" }} onClick={handleLogClick}>{`${location.pathname === "/home" ? "View Log" : "Home"}`}</Link> */}
                     <div className="1" style={{ width: "37%", height: "100%", textAlign: "center" }}>
                         <img src={require(`../assets/images/home${location.pathname === "/home" ? "Focus" : ""}.png`)} alt="" style={{ height: "30%", margin: "auto", paddingTop: "50%" }} onClick={() => { navigate("/home") }} />
