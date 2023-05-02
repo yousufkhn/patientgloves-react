@@ -29,7 +29,7 @@ export default function SettingsPage() {
                 setIndx(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/1");
@@ -39,7 +39,7 @@ export default function SettingsPage() {
                 setIndxmdl(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/2");
@@ -49,7 +49,7 @@ export default function SettingsPage() {
                 setIndxltl(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/3");
@@ -59,7 +59,7 @@ export default function SettingsPage() {
                 setFist(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/4");
@@ -69,7 +69,7 @@ export default function SettingsPage() {
                 setLtl(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/5");
@@ -79,7 +79,7 @@ export default function SettingsPage() {
                 setMdl(datavar);
             }
         });
-    });
+    }, []);
 
 
 

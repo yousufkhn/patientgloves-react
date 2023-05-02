@@ -27,7 +27,7 @@ export default function LandingPage() {
                 setVar0(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/1");
@@ -37,7 +37,7 @@ export default function LandingPage() {
                 setVar1(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/2");
@@ -47,7 +47,7 @@ export default function LandingPage() {
                 setVar2(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/3");
@@ -57,7 +57,7 @@ export default function LandingPage() {
                 setVar3(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/4");
@@ -67,7 +67,7 @@ export default function LandingPage() {
                 setVar4(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/5");
@@ -77,7 +77,7 @@ export default function LandingPage() {
                 setVar5(datavar);
             }
         });
-    });
+    }, []);
 
     useEffect(() => {
         const query = ref(db, "glove/6");
@@ -87,7 +87,7 @@ export default function LandingPage() {
                 setVar6(datavar);
             }
         });
-    });
+    }, []);
 
 
     // glove codes
