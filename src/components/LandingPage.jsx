@@ -5,17 +5,100 @@ import "./LandingPage.css";
 import notification from '../assets/audio/notification.mp3';
 import { db } from "../utils/firebase.js";
 import { onValue, ref } from "firebase/database";
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
-    const [logText, setLogText] = useState("Patient is Resting");
+
+    const navigate = useNavigate();
+    const [var0, setVar0] = useState();
+    const [var1, setVar1] = useState();
+    const [var2, setVar2] = useState();
+    const [var3, setVar3] = useState();
+    const [var4, setVar4] = useState();
+    const [var5, setVar5] = useState();
+    const [var6, setVar6] = useState();
+    const [logText, setLogText] = useState(var0);
+
+    useEffect(() => {
+        const query = ref(db, "glove/0");
+        return onValue(query, (snapshot) => {
+            const datavar = snapshot.val();
+            if (snapshot.exists()) {
+                setVar0(datavar);
+            }
+        });
+    });
+
+    useEffect(() => {
+        const query = ref(db, "glove/1");
+        return onValue(query, (snapshot) => {
+            const datavar = snapshot.val();
+            if (snapshot.exists()) {
+                setVar1(datavar);
+            }
+        });
+    });
+
+    useEffect(() => {
+        const query = ref(db, "glove/2");
+        return onValue(query, (snapshot) => {
+            const datavar = snapshot.val();
+            if (snapshot.exists()) {
+                setVar2(datavar);
+            }
+        });
+    });
+
+    useEffect(() => {
+        const query = ref(db, "glove/3");
+        return onValue(query, (snapshot) => {
+            const datavar = snapshot.val();
+            if (snapshot.exists()) {
+                setVar3(datavar);
+            }
+        });
+    });
+
+    useEffect(() => {
+        const query = ref(db, "glove/4");
+        return onValue(query, (snapshot) => {
+            const datavar = snapshot.val();
+            if (snapshot.exists()) {
+                setVar4(datavar);
+            }
+        });
+    });
+
+    useEffect(() => {
+        const query = ref(db, "glove/5");
+        return onValue(query, (snapshot) => {
+            const datavar = snapshot.val();
+            if (snapshot.exists()) {
+                setVar5(datavar);
+            }
+        });
+    });
+
+    useEffect(() => {
+        const query = ref(db, "glove/6");
+        return onValue(query, (snapshot) => {
+            const datavar = snapshot.val();
+            if (snapshot.exists()) {
+                setVar6(datavar);
+            }
+        });
+    });
 
 
     // glove codes
     const gloveCode = {
-        0: "OFF STATE",
-        1: "Wash Room",
-        2: "Feeling Lonely",
-        3: "Call Doctor"
+        0: var0,
+        1: var1,
+        2: var2,
+        3: var3,
+        4: var4,
+        5: var5,
+        6: var6
     }
 
     useEffect(() => {
@@ -44,12 +127,13 @@ export default function LandingPage() {
     }, [logText]);
 
 
+
     return (
         <>
             <div className="landingPage">
                 <div
                     className="heading"
-                    style={{ height: "50%", display: "grid", placeItems: "center" }}
+                    style={{ height: "50%", display: "grid", placeItems: "center", marginTop: "4rem" }}
                 >
                     <div
                         className="lottieLogo"
@@ -59,6 +143,9 @@ export default function LandingPage() {
                     </div>
                     <div>
                         <h2 style={{ fontSize: "3rem" }}>Patient Gloves</h2>
+                    </div>
+                    <div className="settingsbtn">
+                        <img src={require("../assets/images/setting.png")} alt="" style={{ height: "6%", position: "absolute", top: "2%", right: "5%" }} onClick={() => { navigate("/settings") }} />
                     </div>
                 </div>
                 <div

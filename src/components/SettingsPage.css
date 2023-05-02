@@ -9,16 +9,20 @@
 .finger-gesture-wrapper{
     display: flex;
     margin-top: 8%;
+    width: 90%;
 }
 
 .finger-gesture-wrapper .icon{
-    padding-left: 10%;
+    /* padding-left: 10%; */
+    height: 46px;
+
     
 }
 
 .finger-gesture-wrapper .icon img{
-    border-radius: 30%;
-    border: solid black 2px;
+    /* border-radius: 30%;
+    border: solid black 2px; */
+    height: 100%;
 }
 
 .finger-gesture-wrapper .input{
@@ -31,7 +35,7 @@
 font-family: 'Roboto', sans-serif;
 color: #333;
 font-size: 1.2rem;
-    margin: 0 auto;
+margin: 0 auto;
 padding: 0.8rem 2rem;
 border-radius: 0.2rem;
 background-color: rgb(255, 255, 255);
@@ -40,4 +44,39 @@ width: 70%;
 display: block;
 border-bottom: 0.3rem solid transparent;
 transition: all 0.3s;
+}
+
+
+/* CSS */
+.button-36 {
+margin-top: 40%;
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  height: 3rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-36:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .1s;
+}
+
+@media (min-width: 768px) {
+  .button-36 {
+    padding: 0 2.6rem;
+  }
 }

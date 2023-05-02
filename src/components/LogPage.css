@@ -5,7 +5,8 @@
     overflow: hidden;
     box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
     border-radius: 1em;
-    background: linear-gradient(to right, #2D2727, #191825);
+    background: #2a2f3b;
+    /* background: linear-gradient(to right, #2D2727, #191825); */
     width: 90%;
     margin: auto;
     margin-bottom: 4%;
