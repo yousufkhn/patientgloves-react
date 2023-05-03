@@ -17,6 +17,9 @@ import notification from './assets/audio/notification.mp3';
 function App() {
 
   const [logText, setLogText] = useState();
+  const [logList, setLogList] = useState([]);
+
+
 
 
   function playNotificationSound() {
@@ -24,6 +27,7 @@ function App() {
     audio.play();
     navigator.vibrate(300);
     console.log("Notification sound played.");
+    console.log(logList)
   }
 
 
@@ -34,8 +38,8 @@ function App() {
           <ToggleButton />
           <Routes>
             <Route path='/' element={<GloveLogin />}></Route>
-            <Route path='/log' element={<LogPage />}></Route>
-            <Route path='/home' element={<LandingPage setLogText={setLogText} logText={logText} playNotificationSound={playNotificationSound} />} ></Route>
+            <Route path='/log' element={<LogPage logList={logList} />}></Route>
+            <Route path='/home' element={<LandingPage setLogText={setLogText} logText={logText} playNotificationSound={playNotificationSound} logList={logList} setLogList={setLogList} />} ></Route>
             <Route path='/settings' element={<SettingsPage />}></Route>
           </Routes>
         </Router>

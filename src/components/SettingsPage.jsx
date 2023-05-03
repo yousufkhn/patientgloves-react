@@ -158,7 +158,7 @@ export default function SettingsPage() {
                     </div>
                 </div>
 
-                <div className="finger-gesture-wrapper">
+                <div className="finger-gesture-wrapper" style={{ marginLeft: "2%" }}>
                     <div className="icon">
                         <img src={require("../assets/images/pinky.png")} alt="" srcset="" />
                     </div>

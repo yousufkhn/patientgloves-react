@@ -8,7 +8,7 @@ import { onValue, ref } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
 
-export default function LandingPage({ setLogText, logText, playNotificationSound }) {
+export default function LandingPage({ setLogText, logText, playNotificationSound, logList, setLogList }) {
 
     const navigate = useNavigate();
     const [var0, setVar0] = useState();
@@ -125,28 +125,13 @@ export default function LandingPage({ setLogText, logText, playNotificationSound
     });
 
 
-    // useEffect(() => {
-    //     const audio = new Audio(notification);
-    //     if (logText !== var0) {
-    //         audio.play();
-    //     }
-    //     navigator.vibrate(300);
-    //     console.log("hi")
-    // }, [logText]);
-
-    // function handleLogChange() {
-    //     const audio = new Audio(notification);
-    //     audio.play();
-    //     navigator.vibrate(300);
-    //     console.log("h")
-    // }
-
     useEffect(() => {
         if (logText && logText !== prevMsg) {
             playNotificationSound();
             setPrevMsg(logText);
+            setLogList(prevList => [...prevList, { text: logText, timestamp: new Date().toLocaleString() }]);
         }
-    }, [logText, prevMsg, playNotificationSound]);
+    }, [logText, prevMsg, playNotificationSound, setLogList]);
 
 
     return (
@@ -182,7 +167,7 @@ export default function LandingPage({ setLogText, logText, playNotificationSound
                         marginBottom: "5%",
                     }}
                 >
-                    <h1 style={{ fontSize: "2.2rem", textAlign: "center" }}>{logText}</h1>
+                    <h1 style={{ fontSize: "2.2rem", textAlign: "center" }}>{prevMsg}</h1>
                 </div>
                 <div
                     className="buttons"
