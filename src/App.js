@@ -16,10 +16,10 @@ import notification from './assets/audio/notification.mp3';
 
 function App() {
 
+  const [gloveState, setGloveState] = useState(false);
+
   const [logText, setLogText] = useState();
   const [logList, setLogList] = useState([]);
-
-
 
 
   function playNotificationSound() {
@@ -35,11 +35,11 @@ function App() {
     <>
       <div className="appContainer" style={{ height: "100%", color: "white", overflow: "hidden" }}>
         <Router>
-          <ToggleButton />
+          <ToggleButton setGloveState={setGloveState} gloveState={gloveState} />
           <Routes>
             <Route path='/' element={<GloveLogin />}></Route>
             <Route path='/log' element={<LogPage logList={logList} />}></Route>
-            <Route path='/home' element={<LandingPage setLogText={setLogText} logText={logText} playNotificationSound={playNotificationSound} logList={logList} setLogList={setLogList} />} ></Route>
+            <Route path='/home' element={<LandingPage setLogText={setLogText} logText={logText} playNotificationSound={playNotificationSound} logList={logList} setLogList={setLogList} gloveState={gloveState} />} ></Route>
             <Route path='/settings' element={<SettingsPage />}></Route>
           </Routes>
         </Router>

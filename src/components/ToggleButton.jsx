@@ -2,11 +2,22 @@ import { useLocation } from "react-router-dom";
 import "../components/ToggleButton.css";
 import { useNavigate } from "react-router-dom";
 
-export default function ToggleButton() {
+export default function ToggleButton({ gloveState, setGloveState }) {
 
     const location = useLocation();
 
     const navigate = useNavigate();
+
+    function toggleGloveBtn() {
+        if (!gloveState) {
+            setGloveState(true)
+        }
+        else {
+            setGloveState(false);
+
+        }
+
+    }
     return (
         <>
             {location.pathname !== '/' && (
@@ -15,11 +26,11 @@ export default function ToggleButton() {
                     <div className="1" style={{ width: "37%", height: "100%", textAlign: "center" }}>
                         <img src={require(`../assets/images/home${location.pathname === "/home" ? "Focus" : ""}.png`)} alt="" style={{ height: "30%", margin: "auto", position: "absolute", bottom: "22%", left: "12%" }} onClick={() => { navigate("/home") }} />
                     </div>
-                    <div className="2" style={{ width: "27%", transform: "scale(0.8)", textAlign: 'center' }}>
+                    <div className="2" style={{ width: "27%", transform: "scale(0.8)", textAlign: 'center' }}  >
                         <input type="checkbox" id="toggle" />
-                        <label for="toggle" class="toggleWrapper" style={{ marginLeft: "auto", marginRight: "auto" }}>
+                        <label for="toggle" class="toggleWrapper" style={{ marginLeft: "auto", marginRight: "auto" }} onClick={toggleGloveBtn} >
                             <div class="toggle"></div>
-                        </label>
+                        </label >
                     </div>
                     <div className="3" style={{ width: "36%", height: "100%", textAlign: "center" }}>
                         <img src={require(`../assets/images/notes${location.pathname === "/log" ? "Focus" : ""}.png`)} alt="" style={{ height: "30%", margin: "auto", position: "absolute", bottom: "22%", right: "12%" }} onClick={() => { navigate("/log") }} />

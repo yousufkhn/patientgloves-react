@@ -8,7 +8,7 @@ import { onValue, ref } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
 
-export default function LandingPage({ setLogText, logText, playNotificationSound, logList, setLogList }) {
+export default function LandingPage({ setLogText, logText, playNotificationSound, logList, setLogList, gloveState }) {
 
     const navigate = useNavigate();
     const [var0, setVar0] = useState();
@@ -110,18 +110,22 @@ export default function LandingPage({ setLogText, logText, playNotificationSound
 
 
     useEffect(() => {
-        const query = ref(db, "glove");
-        return onValue(query, (snapshot) => {
-            const data = snapshot.val();
+        if (gloveState) {
+            const query = ref(db, "glove");
+            return onValue(query, (snapshot) => {
+                const data = snapshot.val();
 
-            if (snapshot.exists()) {
-
-                Object.values(data).map((value) => {
-                    setLogText(gloveCode[value]);
-                    return null;
-                });
-            }
-        });
+                if (snapshot.exists()) {
+                    Object.values(data).map((value) => {
+                        setLogText(gloveCode[value]);
+                        return null;
+                    });
+                }
+            });
+        }
+        else {
+            setLogText("Glove is Off")
+        }
     });
 
 
