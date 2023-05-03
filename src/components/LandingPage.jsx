@@ -2,12 +2,13 @@ import Lottie from "lottie-react";
 import gloves from "../lotties/gloves.json";
 import { useState, useEffect } from "react";
 import "./LandingPage.css";
-import notification from '../assets/audio/notification.mp3';
+// import notification from '../assets/audio/notification.mp3';
 import { db } from "../utils/firebase.js";
 import { onValue, ref } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
-export default function LandingPage() {
+
+export default function LandingPage({ setLogText, logText, playNotificationSound }) {
 
     const navigate = useNavigate();
     const [var0, setVar0] = useState();
@@ -17,7 +18,13 @@ export default function LandingPage() {
     const [var4, setVar4] = useState();
     const [var5, setVar5] = useState();
     const [var6, setVar6] = useState();
-    const [logText, setLogText] = useState(var0);
+    // const [logText, setLogText] = useState(var0);
+    const [prevMsg, setPrevMsg] = useState(logText);
+
+
+
+
+
 
     useEffect(() => {
         const query = ref(db, "glove/0");
@@ -27,7 +34,7 @@ export default function LandingPage() {
                 setVar0(datavar);
             }
         });
-    }, []);
+    });
 
     useEffect(() => {
         const query = ref(db, "glove/1");
@@ -37,7 +44,7 @@ export default function LandingPage() {
                 setVar1(datavar);
             }
         });
-    }, []);
+    });
 
     useEffect(() => {
         const query = ref(db, "glove/2");
@@ -47,7 +54,7 @@ export default function LandingPage() {
                 setVar2(datavar);
             }
         });
-    }, []);
+    });
 
     useEffect(() => {
         const query = ref(db, "glove/3");
@@ -57,7 +64,7 @@ export default function LandingPage() {
                 setVar3(datavar);
             }
         });
-    }, []);
+    });
 
     useEffect(() => {
         const query = ref(db, "glove/4");
@@ -67,7 +74,7 @@ export default function LandingPage() {
                 setVar4(datavar);
             }
         });
-    }, []);
+    });
 
     useEffect(() => {
         const query = ref(db, "glove/5");
@@ -77,7 +84,7 @@ export default function LandingPage() {
                 setVar5(datavar);
             }
         });
-    }, []);
+    });
 
     useEffect(() => {
         const query = ref(db, "glove/6");
@@ -87,7 +94,7 @@ export default function LandingPage() {
                 setVar6(datavar);
             }
         });
-    }, []);
+    });
 
 
     // glove codes
@@ -100,6 +107,7 @@ export default function LandingPage() {
         5: var5,
         6: var6
     }
+
 
     useEffect(() => {
         const query = ref(db, "glove");
@@ -117,15 +125,28 @@ export default function LandingPage() {
     });
 
 
+    // useEffect(() => {
+    //     const audio = new Audio(notification);
+    //     if (logText !== var0) {
+    //         audio.play();
+    //     }
+    //     navigator.vibrate(300);
+    //     console.log("hi")
+    // }, [logText]);
+
+    // function handleLogChange() {
+    //     const audio = new Audio(notification);
+    //     audio.play();
+    //     navigator.vibrate(300);
+    //     console.log("h")
+    // }
+
     useEffect(() => {
-        const audio = new Audio(notification);
-        if (logText !== "Patient is Resting") {
-            audio.play();
+        if (logText && logText !== prevMsg) {
+            playNotificationSound();
+            setPrevMsg(logText);
         }
-        navigator.vibrate(300);
-
-    }, [logText]);
-
+    }, [logText, prevMsg, playNotificationSound]);
 
 
     return (
@@ -170,11 +191,6 @@ export default function LandingPage() {
                         , marginBottom: "0px"
                     }}
                 >
-                    {/* <h3 style={{ margin: "0px" }}>Gloves {glovesState}</h3>
-                    <div className="toggleSwitch" >
-                        <input type="checkbox" id="switch" />
-                        <label for="switch" onClick={toggleGloves}></label>
-                    </div> */}
                 </div>
 
 
