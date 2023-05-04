@@ -27,7 +27,7 @@ export default function LandingPage({ setLogText, logText, playNotificationSound
 
 
     useEffect(() => {
-        const query = ref(db, "glove/1");
+        const query = ref(db, "glove/0");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -37,7 +37,7 @@ export default function LandingPage({ setLogText, logText, playNotificationSound
     });
 
     useEffect(() => {
-        const query = ref(db, "glove/4");
+        const query = ref(db, "glove/1");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -47,7 +47,7 @@ export default function LandingPage({ setLogText, logText, playNotificationSound
     });
 
     useEffect(() => {
-        const query = ref(db, "glove/5");
+        const query = ref(db, "glove/2");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -57,7 +57,7 @@ export default function LandingPage({ setLogText, logText, playNotificationSound
     });
 
     useEffect(() => {
-        const query = ref(db, "glove/0");
+        const query = ref(db, "glove/3");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -67,7 +67,7 @@ export default function LandingPage({ setLogText, logText, playNotificationSound
     });
 
     useEffect(() => {
-        const query = ref(db, "glove/0");
+        const query = ref(db, "glove/4");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -77,7 +77,7 @@ export default function LandingPage({ setLogText, logText, playNotificationSound
     });
 
     useEffect(() => {
-        const query = ref(db, "glove/2");
+        const query = ref(db, "glove/5");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
