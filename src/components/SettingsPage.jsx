@@ -22,7 +22,7 @@ export default function SettingsPage() {
 
 
     useEffect(() => {
-        const query = ref(db, "glove/0");
+        const query = ref(db, "glove/1");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -32,7 +32,7 @@ export default function SettingsPage() {
     }, []);
 
     useEffect(() => {
-        const query = ref(db, "glove/1");
+        const query = ref(db, "glove/4");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -42,7 +42,7 @@ export default function SettingsPage() {
     }, []);
 
     useEffect(() => {
-        const query = ref(db, "glove/2");
+        const query = ref(db, "glove/5");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -52,7 +52,7 @@ export default function SettingsPage() {
     }, []);
 
     useEffect(() => {
-        const query = ref(db, "glove/3");
+        const query = ref(db, "glove/0");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -62,7 +62,7 @@ export default function SettingsPage() {
     }, []);
 
     useEffect(() => {
-        const query = ref(db, "glove/4");
+        const query = ref(db, "glove/3");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -72,7 +72,7 @@ export default function SettingsPage() {
     }, []);
 
     useEffect(() => {
-        const query = ref(db, "glove/5");
+        const query = ref(db, "glove/2");
         return onValue(query, (snapshot) => {
             const datavar = snapshot.val();
             if (snapshot.exists()) {
@@ -90,12 +90,12 @@ export default function SettingsPage() {
         }
         else {
             const updates = {};
-            if (indx !== "") updates["glove/0"] = indx;
-            if (indxmdl !== "") updates["glove/1"] = indxmdl;
-            if (indxltl !== "") updates["glove/2"] = indxltl;
-            if (fist !== "") updates["glove/3"] = fist;
-            if (ltl !== "") updates["glove/4"] = ltl;
-            if (mdl !== "") updates["glove/5"] = mdl;
+            if (indx !== "") updates["glove/1"] = indx;
+            if (indxmdl !== "") updates["glove/4"] = indxmdl;
+            if (indxltl !== "") updates["glove/5"] = indxltl;
+            if (fist !== "") updates["glove/0"] = fist;
+            if (ltl !== "") updates["glove/3"] = ltl;
+            if (mdl !== "") updates["glove/2"] = mdl;
             update(ref(db), updates)
                 .then(() => {
                     // console.log("Data updated successfully!");
@@ -124,6 +124,14 @@ export default function SettingsPage() {
             <div className="settingsMain" style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "7%" }}>
                 <div className="finger-gesture-wrapper">
                     <div className="icon">
+                        <h1>✋</h1>
+                    </div>
+                    <div className="input">
+                        <input type="text" class="form__input" id="name" placeholder="Enter Message" value={fist} onChange={(e) => setFist(e.target.value)} />
+                    </div>
+                </div>
+                <div className="finger-gesture-wrapper">
+                    <div className="icon">
                         <h1>☝</h1>
                     </div>
                     <div className="input">
@@ -149,14 +157,7 @@ export default function SettingsPage() {
                     </div>
                 </div>
 
-                <div className="finger-gesture-wrapper">
-                    <div className="icon">
-                        <h1>✊</h1>
-                    </div>
-                    <div className="input">
-                        <input type="text" class="form__input" id="name" placeholder="Enter Message" value={fist} onChange={(e) => setFist(e.target.value)} />
-                    </div>
-                </div>
+
 
                 <div className="finger-gesture-wrapper" style={{ marginLeft: "2%" }}>
                     <div className="icon">
